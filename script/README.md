@@ -5,3 +5,5 @@
 |:--|:--|
 |wakati_juman.py|形態素解析ライブラリJumanを用いた分かち書きする関数|
 |preprocessing_nlp.py|コメントの前処理適用後,Jumanで分かち書きする関数|
+|create_scene_docs.py|各セグメント毎に分割して文書化するシーン文書を作成する関数|
+|lda.py|gensimを用いたLDA|
