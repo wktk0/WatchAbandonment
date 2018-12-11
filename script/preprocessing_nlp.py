@@ -3,7 +3,7 @@ import mojimoji
 import neologdn
 from tqdm import tqdm_notebook as tqdm
 
-# 入力:DataFrame想定で
+# DataFrame想定で
 def preprocessing_nlp(comments, OUTPUT_INDEX=["origin","norm","current_position"]):
     OUTPUT_INDEX = ["origin","norm","wakati","current_position", "current_position_10"]
     output = pd.DataFrame()
@@ -28,6 +28,6 @@ def preprocessing_nlp(comments, OUTPUT_INDEX=["origin","norm","current_position"
     output = output.dropna()
     output = output.reset_index()
     # 分かち書き
-    output["wakati"] = [juman_wakati(output.norm.loc[idx], hinshi=("形容詞"), STEM_FLAG = True) for idx in tqdm(range(0, output.shape[0]))]
+    output["wakati"] = [juman_wakati(mojimoji.han_to_zen(output.norm.loc[idx]), hinshi=("形容詞"), STEM_FLAG = True) for idx in tqdm(range(0, output.shape[0]))]
     
     return output[OUTPUT_INDEX]
