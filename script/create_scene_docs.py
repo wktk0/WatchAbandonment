@@ -1,6 +1,6 @@
 # input-> DataFrame型
-#　string型で返す
-def create_scene_docs(comments):
+#　list型で返す
+def create_scene_docs(comments,RETURN_TYPE=""):
     scene_docs = []
     for _,com in comments.groupby("current_position_10"):
         s=[]
@@ -9,5 +9,8 @@ def create_scene_docs(comments):
                 if word=="":
                     continue
                 s.append(word)
-        scene_docs.append(" ".join(s))
+        if RETURN_TYPE=="string":
+            scene_docs.append(" ".join(s))
+        else:
+            scene_docs.append(s)
     return scene_docs
